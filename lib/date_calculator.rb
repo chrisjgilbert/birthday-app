@@ -19,7 +19,7 @@ class DateCalculator
   end
 
   def calculate_days
-    (@today - @birthday).count
+    (Date.new(@year, @month, @day) - Date.today)
   end
 
 end
