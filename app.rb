@@ -6,4 +6,6 @@ class Birthday < Sinatra::Base
     'welcome'
   end
 
+  run! if app_file == $0
+
 end
