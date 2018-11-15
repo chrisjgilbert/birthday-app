@@ -1,0 +1,25 @@
+require 'date'
+
+class DateCalculator
+
+  attr_reader :year, :month, :day
+
+  def initialize(year = 2018, month, day)
+    @year = year
+    @month = month
+    @day = day
+  end
+
+  def birthday_date
+    @bithday = Date.new(@year, @month, @day)
+  end
+
+  def todays_date
+    @today = Date.today
+  end
+
+  def calculate_days
+    (@today - @birthday).count
+  end
+
+end

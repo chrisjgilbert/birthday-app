@@ -10,15 +10,14 @@ class Birthday < Sinatra::Base
 
   post '/form' do
     $person = Person.new(params[:name])
-    session[:day] = params[:day]
-    session[:month] = params[:month]
+    $date_calculator = DateCalculator.new(params[:day], params[:month])
     redirect '/results'
   end
 
   get '/results' do
     @person = $person
-    @day = session[:day]
-    @month = session[:month]
+    @day = $date.day
+    @month = $date.month
     erb :result
   end
 
