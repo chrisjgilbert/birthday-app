@@ -9,14 +9,14 @@ class Birthday < Sinatra::Base
   end
 
   post '/form' do
-    session[:name] = params[:name]
+    $person = Person.new(params[:name])
     session[:day] = params[:day]
     session[:month] = params[:month]
     redirect '/results'
   end
 
   get '/results' do
-    @name = session[:name]
+    @person = $person
     @day = session[:day]
     @month = session[:month]
     erb :result
