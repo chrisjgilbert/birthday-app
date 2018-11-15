@@ -14,7 +14,7 @@ feature 'the home page' do
     expect(page).to have_content 'When is your birthday?'
   end
 
-  scenario 'asks the user for their name and DOB' do
+  xscenario 'asks the user for their name and DOB' do
     visit '/'
     fill_in :name, with: 'Chris'
     fill_in :day, with: '15'
