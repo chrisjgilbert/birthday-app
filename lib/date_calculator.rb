@@ -11,11 +11,11 @@ class DateCalculator
   end
 
   def birthday_date
-    @bithday = Date.new(@year, @month, @day)
+    @bithday = Date.new(@year, @month, @day).to_s
   end
 
   def todays_date
-    @today = Date.today
+    @today = Date.today.to_s
   end
 
   def calculate_days

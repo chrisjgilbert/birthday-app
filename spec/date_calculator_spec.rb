@@ -17,14 +17,14 @@ describe DateCalculator do
   end
 
   describe '#birthday' do
-    xit 'sets the birthay as a date object' do
-      expect(date_calculator.birthday).to eq true
+    it 'sets the birthay as a date object' do
+      expect(date_calculator.birthday_date).to eq "2019-11-15"
     end
   end
 
   describe '#todays_date' do
-    xit 'sets todays date' do
-      expect(date_calculator.todays_date).to eq Date.today
+    it 'sets todays date' do
+      expect(date_calculator.todays_date).to eq Date.today.to_s
     end
   end
 
