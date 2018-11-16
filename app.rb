@@ -11,9 +11,12 @@ class Birthday < Sinatra::Base
   end
 
   post '/form' do
-    $person = Person.new(params[:name])
+    @person = Person.create(params[:name])
+
     $date = DateCalculator.new(year: params[:year], month: params[:month], day: params[:day])
+
     $num_of_days = $date.calculate_days
+
     if $num_of_days == 0
       redirect '/birthday'
     else
@@ -21,8 +24,11 @@ class Birthday < Sinatra::Base
     end
   end
 
+  before do
+    @person = Person.instance
+  end
+
   get '/birthday' do
-    @person = $person
     @day = $date.day
     @month = $date.month
     erb :birthday

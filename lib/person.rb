@@ -6,4 +6,12 @@ class Person
     @name = name
   end
 
+  def self.create(name)
+    @person = Person.new(name)
+  end
+
+  def self.instance
+    @person
+  end
+
 end
