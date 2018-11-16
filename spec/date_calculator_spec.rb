@@ -33,5 +33,10 @@ describe DateCalculator do
       allow(date_calculator).to receive(:days_until_birthday).and_return(0)
       expect(date_calculator.birthday?).to eq true
     end
+
+    it 'returns false if today is not your birthday' do
+      allow(date_calculator).to receive(:days_until_birthday).and_return(1)
+      expect(date_calculator.birthday?).to eq false
+    end
   end
 end
