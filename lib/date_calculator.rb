@@ -19,22 +19,29 @@ class DateCalculator
 
   attr_reader :year, :month, :day
 
-  def initialize(year = 2018, month, day)
+  def initialize(date_class: Date, year: 2018, month: month, day: day)
+    @date_class = date_class
     @year = year
     @month = month
     @day = day
   end
 
   def calculate_days
-    start_date = Date.new(@year, convert, @day.to_i)
-    end_date = Date.today
-    (start_date - end_date).to_i
+    (birthday_date - todays_date).to_i
   end
 
   private
 
   def convert
     MONTH_NUMBERS[@month]
+  end
+
+  def birthday_date
+    @date_class.new(@year.to_i, convert, @day.to_i)
+  end
+
+  def todays_date
+    @date_class.today
   end
 
 end

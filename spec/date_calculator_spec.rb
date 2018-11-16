@@ -2,7 +2,7 @@ require 'date_calculator'
 
 describe DateCalculator do
 
-  subject(:date_calculator) { described_class.new(2019, 'november', 16) }
+  subject(:date_calculator) { described_class.new(year: 2019, month: 'november', day: 16) }
 
   it 'takes a month' do
     expect(date_calculator.month).to eq 'november'
@@ -21,5 +21,4 @@ describe DateCalculator do
       expect(date_calculator.calculate_days).to eq 365
     end
   end
-
 end

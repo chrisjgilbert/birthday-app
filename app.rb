@@ -12,7 +12,7 @@ class Birthday < Sinatra::Base
 
   post '/form' do
     $person = Person.new(params[:name])
-    $date = DateCalculator.new(params[:month], params[:day])
+    $date = DateCalculator.new(year: params[:year], month: params[:month], day: params[:day])
     $num_of_days = $date.calculate_days
     if $num_of_days == 0
       redirect '/birthday'
