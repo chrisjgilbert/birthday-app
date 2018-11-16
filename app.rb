@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative './lib/person'
+require_relative './lib/date_calculator'
 
 class Birthday < Sinatra::Base
 
@@ -10,16 +12,25 @@ class Birthday < Sinatra::Base
 
   post '/form' do
     $person = Person.new(params[:name])
-    $date = DateCalculator.new(params[:day], params[:month])
-    # $days_until_bday = $date.calculate_days
-    redirect '/results'
+    $date = DateCalculator.new(params[:month], params[:day])
+    $num_of_days = $date.calculate_days
+    if $num_of_days == 0
+      redirect '/birthday'
+    else
+      redirect '/non_birthday'
+    end
   end
 
-  get '/results' do
+  get '/birthday' do
     @person = $person
     @day = $date.day
     @month = $date.month
-    erb :result
+    erb :birthday
+  end
+
+  get '/non_birthday' do
+    @num_of_days = $num_of_days
+    erb :non_birthday
   end
 
   run! if app_file == $0

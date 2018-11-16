@@ -26,9 +26,9 @@ class DateCalculator
   end
 
   def calculate_days
-    start_date = Date.new(@year, convert, @day)
+    start_date = Date.new(@year, convert, @day.to_i)
     end_date = Date.today
-    start_date - end_date
+    (start_date - end_date).to_i
   end
 
   private
