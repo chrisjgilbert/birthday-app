@@ -34,8 +34,12 @@ class DateCalculator
     @day = day
   end
 
-  def calculate_days
+  def days_until_birthday
     (birthday_date - todays_date).to_i
+  end
+
+  def birthday?
+    days_until_birthday == 0
   end
 
   private

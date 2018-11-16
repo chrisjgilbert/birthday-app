@@ -16,9 +16,16 @@ describe DateCalculator do
     expect(date_calculator.year).to eq 2019
   end
 
-  describe '#calculate_days' do
+  describe '#days_until_birthday' do
     it 'calculates days between two dates' do
-      expect(date_calculator.calculate_days).to eq 365
+      expect(date_calculator.days_until_birthday).to eq 365
+    end
+  end
+
+  describe '#birthday?' do
+    it 'returns true if today is your birthday' do
+      date_cal = described_class.new(2018, 'november', 16)
+      expect(date_cal.birthday?).to eq true
     end
   end
 end

@@ -13,7 +13,7 @@ class Birthday < Sinatra::Base
   post '/form' do
     @person = Person.create(params[:name])
     @date = DateCalculator.create(params[:year], params[:month], params[:day])
-    num_of_days = @date.calculate_days
+    num_of_days = @date.days_until_birthday
     if num_of_days == 0
       redirect '/birthday'
     else
@@ -33,7 +33,7 @@ class Birthday < Sinatra::Base
   end
 
   get '/non_birthday' do
-    @num_of_days = @date.calculate_days
+    @num_of_days = @date.days_until_birthday
     erb :non_birthday
   end
 
