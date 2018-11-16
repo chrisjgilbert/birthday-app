@@ -20,15 +20,15 @@ class DateCalculator
   attr_reader :year, :month, :day
 
   def self.create(year, month, day)
-    @date = DateCalculator.new(year, month, day)
+    @date = self.new(year, month, day)
   end
 
   def self.instance
     @date
   end
 
-  def initialize(year, month, day)
-    @date_class = Date
+  def initialize(year, month, day, date_class = Date)
+    @date_class = date_class
     @year = year
     @month = month
     @day = day

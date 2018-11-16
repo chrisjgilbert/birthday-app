@@ -7,7 +7,7 @@ class Person
   end
 
   def self.create(name)
-    @person = Person.new(name)
+    @person = self.new(name)
   end
 
   def self.instance
