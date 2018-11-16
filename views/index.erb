@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Birthday App</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="main">
       <h1>Welcome!</h1>
       <h2>What is your name?</h2>
       <form action="/form" method="post">
-        <input type="text" name="name">
+        <input class="name" type="text" name="name">
       <h2>When is your birthday?</h2>
       <label for="day">Day:
-        <input type="text" name="day">
+        <input class="day" type="text" name="day">
       </label>
       <label for="month">Month:
         <select name="month">
@@ -37,7 +37,7 @@
           </select>
         </label>
       </label><br>
-        <input type="submit" name="" value="submit">
+        <input class="submit" type="submit" name="" value="submit">
       </form>
     </div>
   </body>

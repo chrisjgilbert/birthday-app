@@ -4,9 +4,9 @@ describe DateCalculator do
 
   subject(:date_calculator) { described_class.new(year, month, day) }
 
-  let(:year) { double(:year, year: 2019) }
-  let(:month) { double(:month, month: 11) }
-  let(:day) { double(:day, day: 16) }
+  let(:year) { double(:year) }
+  let(:month) { double(:month) }
+  let(:day) { double(:day) }
 
   it 'takes a month' do
     expect(date_calculator.month).to eq month
