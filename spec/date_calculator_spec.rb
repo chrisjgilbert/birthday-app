@@ -2,30 +2,36 @@ require 'date_calculator'
 
 describe DateCalculator do
 
-  subject(:date_calculator) { described_class.new(2019, 'november', 16) }
+  subject(:date_calculator) { described_class.new(year, month, day) }
+
+  let(:year) { double(:year, year: 2019) }
+  let(:month) { double(:month, month: 11) }
+  let(:day) { double(:day, day: 16) }
 
   it 'takes a month' do
-    expect(date_calculator.month).to eq 'november'
+    expect(date_calculator.month).to eq month
   end
 
   it 'takes a day' do
-    expect(date_calculator.day).to eq 16
+    expect(date_calculator.day).to eq day
   end
 
   it 'sets the year as 2018 by default' do
-    expect(date_calculator.year).to eq 2019
+    expect(date_calculator.year).to eq year
   end
 
   describe '#days_until_birthday' do
     it 'calculates days between two dates' do
-      expect(date_calculator.days_until_birthday).to eq 365
+      allow(date_calculator).to receive(:birthday_date).and_return(Date.today.next_day(10))
+      allow(date_calculator).to receive(:todays_date).and_return(Date.today)
+      expect(date_calculator.days_until_birthday).to eq 10
     end
   end
 
   describe '#birthday?' do
     it 'returns true if today is your birthday' do
-      date_cal = described_class.new(2018, 'november', 16)
-      expect(date_cal.birthday?).to eq true
+      allow(date_calculator).to receive(:days_until_birthday).and_return(0)
+      expect(date_calculator.birthday?).to eq true
     end
   end
 end

@@ -6,6 +6,11 @@ class Birthday < Sinatra::Base
 
   enable :sessions
 
+  before do
+    @person = Person.instance
+    @date = DateCalculator.instance
+  end
+
   get '/' do
     erb :index
   end
@@ -18,11 +23,6 @@ class Birthday < Sinatra::Base
     else
       redirect '/non_birthday'
     end
-  end
-
-  before do
-    @person = Person.instance
-    @date = DateCalculator.instance
   end
 
   get '/birthday' do
