@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Birthday App</title>
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Happy Birthday <%= @person.name%>!!!</h1>
+    <div class="main">
+      <h1>Happy Birthday <%= @person.name%>!!!</h1>
+    </div>
   </body>
 </html>
