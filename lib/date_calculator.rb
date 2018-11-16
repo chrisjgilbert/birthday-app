@@ -19,7 +19,7 @@ class DateCalculator
 
   attr_reader :year, :month, :day
 
-  def initialize(date_class: Date, year: 2018, month: month, day: day)
+  def initialize(date_class: Date, year:, month:, day:)
     @date_class = date_class
     @year = year
     @month = month
